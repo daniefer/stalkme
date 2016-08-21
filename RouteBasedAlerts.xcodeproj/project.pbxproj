@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F01A64281D558705000B6EC0 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A64271D558705000B6EC0 /* Profile.swift */; };
+		F01A642B1D56512A000B6EC0 /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A642A1D56512A000B6EC0 /* NSDateExtensions.swift */; };
+		F01A642D1D565D3A000B6EC0 /* ArrayExtenisons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A642C1D565D3A000B6EC0 /* ArrayExtenisons.swift */; };
+		F06F3F871D3EFDF50005F53B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F06F3F861D3EFDF50005F53B /* CoreLocation.framework */; };
 		F0A0A0D81D3DBDF5008C299A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0A0D71D3DBDF5008C299A /* AppDelegate.swift */; };
 		F0A0A0DA1D3DBDF5008C299A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A0A0D91D3DBDF5008C299A /* ViewController.swift */; };
 		F0A0A0DD1D3DBDF5008C299A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A0A0DB1D3DBDF5008C299A /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F01A64271D558705000B6EC0 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		F01A642A1D56512A000B6EC0 /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateExtensions.swift; path = Extensions/NSDateExtensions.swift; sourceTree = "<group>"; };
+		F01A642C1D565D3A000B6EC0 /* ArrayExtenisons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtenisons.swift; path = Extensions/ArrayExtenisons.swift; sourceTree = "<group>"; };
+		F06F3F861D3EFDF50005F53B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F0A0A0D41D3DBDF5008C299A /* RouteBasedAlerts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouteBasedAlerts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0A0A0D71D3DBDF5008C299A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0A0A0D91D3DBDF5008C299A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F06F3F871D3EFDF50005F53B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,9 +65,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F01A64291D5650DF000B6EC0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F01A642A1D56512A000B6EC0 /* NSDateExtensions.swift */,
+				F01A642C1D565D3A000B6EC0 /* ArrayExtenisons.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		F0A0A0CB1D3DBDF4008C299A = {
 			isa = PBXGroup;
 			children = (
+				F01A64291D5650DF000B6EC0 /* Extensions */,
+				F06F3F861D3EFDF50005F53B /* CoreLocation.framework */,
 				F0A0A0D61D3DBDF5008C299A /* RouteBasedAlerts */,
 				F0A0A0EB1D3DBDF5008C299A /* RouteBasedAlertsTests */,
 				F0A0A0D51D3DBDF5008C299A /* Products */,
@@ -83,6 +103,7 @@
 				F0A0A0DE1D3DBDF5008C299A /* Assets.xcassets */,
 				F0A0A0E01D3DBDF5008C299A /* LaunchScreen.storyboard */,
 				F0A0A0E31D3DBDF5008C299A /* Info.plist */,
+				F01A64271D558705000B6EC0 /* Profile.swift */,
 			);
 			path = RouteBasedAlerts;
 			sourceTree = "<group>";
@@ -146,6 +167,7 @@
 				TargetAttributes = {
 					F0A0A0D31D3DBDF4008C299A = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5B9BQ6DBW8;
 					};
 					F0A0A0E71D3DBDF5008C299A = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -197,8 +219,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F01A642B1D56512A000B6EC0 /* NSDateExtensions.swift in Sources */,
 				F0A0A0DA1D3DBDF5008C299A /* ViewController.swift in Sources */,
+				F01A64281D558705000B6EC0 /* Profile.swift in Sources */,
 				F0A0A0D81D3DBDF5008C299A /* AppDelegate.swift in Sources */,
+				F01A642D1D565D3A000B6EC0 /* ArrayExtenisons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,10 +352,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RouteBasedAlerts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.RouteBasedAlerts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -338,10 +366,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = RouteBasedAlerts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.RouteBasedAlerts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -388,6 +419,7 @@
 				F0A0A0F31D3DBDF5008C299A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0A0A0F41D3DBDF5008C299A /* Build configuration list for PBXNativeTarget "RouteBasedAlertsTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +428,7 @@
 				F0A0A0F61D3DBDF5008C299A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
