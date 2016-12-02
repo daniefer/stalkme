@@ -9,7 +9,7 @@
 import Foundation
 
 extension Array {
-    func last(n: Int) -> Array {
+    func last(_ n: Int) -> Array {
         var result: Array = [];
         var index: Index = Index(n);
         while index < self.count {

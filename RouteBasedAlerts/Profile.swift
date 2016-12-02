@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 class Profile {
-    var locationHistory: [CLLocationCoordinate2D!];
+    var locationHistory: [CLLocationCoordinate2D?];
     
     
     
@@ -18,7 +18,7 @@ class Profile {
         self.locationHistory = [];
     }
     
-    func addLocation(location: CLLocationCoordinate2D) -> Void {
+    func addLocation(_ location: CLLocationCoordinate2D) -> Void {
         self.locationHistory.append(location);
         //print(self.locationHistory.debugDescription);
     }

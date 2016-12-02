@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,17 +18,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="oE4-Js-aCN">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAc-Fi-Yf5">
-                                <rect key="frame" x="540" y="540" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="f08-pP-scJ"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yAc-Fi-Yf5">
+                                <rect key="frame" x="276" y="12" width="44" height="52"/>
                                 <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="45"/>
                                 <state key="normal" title="◺">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -34,13 +35,12 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="oE4-Js-aCN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Buk-Nj-wka"/>
-                            <constraint firstItem="yAc-Fi-Yf5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="520" id="I0T-BW-XIE"/>
+                            <constraint firstAttribute="trailing" secondItem="yAc-Fi-Yf5" secondAttribute="trailing" id="3i8-ds-FRP"/>
+                            <constraint firstItem="oE4-Js-aCN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="Buk-Nj-wka"/>
                             <constraint firstItem="oE4-Js-aCN" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="KmF-2a-PG2"/>
-                            <constraint firstItem="yAc-Fi-Yf5" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="TNc-tM-9n4"/>
-                            <constraint firstItem="oE4-Js-aCN" firstAttribute="trailing" secondItem="yAc-Fi-Yf5" secondAttribute="trailing" id="abf-YA-dir"/>
+                            <constraint firstItem="yAc-Fi-Yf5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="12" id="X2r-Mz-mPy"/>
                             <constraint firstItem="oE4-Js-aCN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bwJ-8g-6AW"/>
                             <constraint firstAttribute="trailing" secondItem="oE4-Js-aCN" secondAttribute="trailing" id="iFY-G3-t2B"/>
                         </constraints>
@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="337"/>
+            <point key="canvasLocation" x="243.75" y="336.25"/>
         </scene>
     </scenes>
 </document>

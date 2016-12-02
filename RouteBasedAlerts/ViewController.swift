@@ -16,13 +16,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var centerMeButton: UIButton!
     
     let clManager: CLLocationManager;
-    var userChangedRegion: Bool;
+    var followUser: Bool;
     let profile: Profile!;
     let geoCoder: CLGeocoder!
     
     required init?(coder aDecoder: NSCoder) {
         self.clManager = CLLocationManager();
-        self.userChangedRegion = false;
+        self.followUser = true;
         self.profile = Profile();
         self.geoCoder = CLGeocoder();
         
@@ -31,14 +31,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     // MARK: Private initialization methods
-    private func initializeLocationManager() -> Void {
+    fileprivate func initializeLocationManager() -> Void {
         self.clManager.delegate = self;
         self.clManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         self.clManager.requestAlwaysAuthorization()
         self.clManager.startUpdatingLocation()
     }
     
-    private func initializeMapView() -> Void {
+    fileprivate func initializeMapView() -> Void {
         // TODO: I would like to assign multiple delegates to this mapView.
         // Is that possible? My idea is that if I want something to only fire once for 
         // a location update, I can add and remove delegates. Still researching...
@@ -56,9 +56,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         self.mapView.addGestureRecognizer(mapTapGestureRecognizer);
     }
     
-    @IBAction func userDidRequestCenterMap(sender: UIButton) {
+    @IBAction func userDidRequestCenterMap(_ sender: UIButton) {
         // This button should center the map on the users current location
-        
+        self.followUser = true;
     }
     
     // MARK: UIViewController
@@ -74,21 +74,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     // MARK: UIPanGestureRecognizer handler
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true;
     }
     
-    func didDragMap(sender: UIGestureRecognizer) -> Void {
-        self.userChangedRegion = true;
+    func didDragMap(_ sender: UIGestureRecognizer) -> Void {
+
         print("Map panned. sender: \(sender.state.rawValue)")
     }
     
     // MARK: UITapGestureRecognizer handler
-    func didTapMap(sender: UIPanGestureRecognizer) -> Void {
-        if sender.state == UIGestureRecognizerState.Ended {
+    func didTapMap(_ sender: UIPanGestureRecognizer) -> Void {
+        if sender.state == UIGestureRecognizerState.ended {
             self.mapView.removeAnnotations(self.mapView.annotations);
-            let point = sender.locationInView(self.mapView);
-            let location = self.mapView.convertPoint(point, toCoordinateFromView: self.mapView);
+            let point = sender.location(in: self.mapView);
+            let location = self.mapView.convert(point, toCoordinateFrom: self.mapView);
             let placemark = MKPlacemark(coordinate: location, addressDictionary: nil);
             self.mapView.addAnnotation(placemark);
         }
@@ -96,12 +96,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     // MARK: UIGestureRecognizerDelegate
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         return true;
     }
     
     // MARK: CLLocationManager
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             self.profile.addLocation(location.coordinate);
             if self.profile.isStationary {
@@ -112,16 +112,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
     }
     
     // MARK: MKMapView
-    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, didChangeDragState newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
         
     }
     
-    func mapViewDidFinishLoadingMap(mapView: MKMapView) {
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         print("*** did finish loading fired!")
         let location = self.mapView.userLocation.coordinate;
         let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
